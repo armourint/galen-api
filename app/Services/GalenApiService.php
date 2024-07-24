@@ -32,7 +32,7 @@ class GalenApiService
                 'form_params' => [
                     'emailAddress' => $email,
                     'password' => $password,
-                    'sendMFACode' => true,
+                    'sendMFACode' => false,
                 ],
             ]);
 

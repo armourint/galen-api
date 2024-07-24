@@ -15,21 +15,27 @@ class GalenController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
+        // Validate the JSON input
+        $validatedData = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-       
+        // Extract email and password from the validated data
+        $email = $validatedData['email'];
+        $password = $validatedData['password'];
 
-        $result = $this->galenApiService->login($request->email, $request->password);
+        // Call the Galen API service with the extracted data
+        $result = $this->galenApiService->login($email, $password);
 
+        // Return the result as a JSON response
         if ($result) {
             return response()->json($result);
         } else {
             return response()->json(['error' => 'Login failed'], 401);
         }
     }
+
 
     public function helloworld(Request $request)
     {
