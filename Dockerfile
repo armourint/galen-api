@@ -23,6 +23,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 ENV ENVIRONMENT RELEASE
 ENV PORT 8080
+ENV HOST 0.0.0.0
 
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 
