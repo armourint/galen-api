@@ -33,7 +33,3 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
 RUN chown -R www-data: .   
-
-
-# Expose port 8080 for Cloud Run
-EXPOSE 8080
